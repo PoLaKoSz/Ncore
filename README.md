@@ -14,6 +14,8 @@ $ dotnet add package PoLaKoSz.NCore
 ## Quick start
 
 ``` c#
+using PoLaKoSz.Ncore;
+using PoLaKoSz.Ncore.Models;
 using System;
 
 namespace ConsoleApp
@@ -22,6 +24,17 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
+            NcoreClient nCore = new NcoreClient();
+
+            // parameter values should be extracted from the cookies after logged in from a
+            // browser:
+            //  constructor parameter     cookie name
+            //       nickName                 nick
+            //       password                 pass
+            //     phpSessionID            PHPSESSID
+            nCore.Login.AuthenticateWith(new UserConfig(...))
+                .GetAwaiter().GetResult();
+
             Console.Read();
         }
     }

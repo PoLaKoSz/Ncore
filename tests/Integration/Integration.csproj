@@ -25,4 +25,13 @@
     <ProjectReference Include="..\..\src\PoLaKoSz.Ncore\PoLaKoSz.Ncore.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="StaticResources\LoginEndPoint\authenticated.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StaticResources\LoginEndPoint\unauthenticated.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

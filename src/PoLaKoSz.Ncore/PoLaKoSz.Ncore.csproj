@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RootNamespace>PoLaKoSz.Ncore</RootNamespace>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Authors>Tom PoLáKoSz</Authors>
+    <PackageProjectUrl>https://github.com/PoLaKoSz/nCore</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/PoLaKoSz/nCore</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>ncore ncore.cc wrapper api scraper netcore netcore2.1</PackageTags>
+    <PackageLicenseUrl>https://github.com/PoLaKoSz/nCore/LICENSE</PackageLicenseUrl>
+    <PackageId>PoLaKoSz.Ncore</PackageId>
+    <Product>nCore</Product>
+    <PackageReleaseNotes>First stable release. The enty point to the library is the _____ class.</PackageReleaseNotes>
+    <Description>nCore.cc is the largest hungarian torrent side. This .NET Core 2.1 library helps to access its content (Torrent details, user Hit'n'Runs, Search for Torrent).</Description>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AngleSharp" Version="0.14.0" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>

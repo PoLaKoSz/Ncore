@@ -39,11 +39,17 @@ namespace PoLaKoSz.Ncore
             UserConfig userConfig = new UserConfig();
             LoginParser authChecker = new LoginParser();
             Login = new LoginEndPoint(client, cookies, authChecker, userConfig);
+            Search = new SearchEndPoint(client, authChecker, userConfig);
         }
 
         /// <summary>
         /// Gets an access point to all login related action.
         /// </summary>
         public ILoginEndPoint Login { get; }
+
+        /// <summary>
+        /// Gets an access point to all search related action.
+        /// </summary>
+        public ISearchEndPoint Search { get; }
     }
 }

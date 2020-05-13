@@ -35,6 +35,12 @@ namespace ConsoleApp
             nCore.Login.AuthenticateWith(new UserConfig(...))
                 .GetAwaiter().GetResult();
 
+            ISearchResultContainer resultContainer = nCore.Search.List()
+                .GetAwaiter().GetResult();
+
+            ISearchResultContainer matrixResultContainer = nCore.Search.For("The Matrix")
+                .GetAwaiter().GetResult();
+
             Console.Read();
         }
     }

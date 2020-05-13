@@ -14,6 +14,18 @@ namespace PoLaKoSz.Ncore.Tests.Integration
             Web = new LocalHttpMessageHandler();
         }
 
+        protected NcoreClient GetAuthenticatedClient()
+        {
+            var client = new NcoreClient(Web);
+            
+            SetServerResponse("LoginEndPoint", "authenticated");
+            
+            client.Login.AuthenticateWith(new UserConfig(null, null, null))
+                .ConfigureAwait(false).GetAwaiter().GetResult();
+
+            return client;
+        }
+
         protected void SetServerResponse(string sourceFile)
         {
             SetServerResponse(_moduleName, sourceFile);

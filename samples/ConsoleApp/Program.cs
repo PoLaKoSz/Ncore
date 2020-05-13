@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -26,6 +27,16 @@ namespace PoLaKoSz.Ncore.Samples.ConsoleApp
             UserConfig userConfig = LoadCredentialsFromFile();
 
             NcoreClient client = GetAuthenticatedClientFor(userConfig)
+                .ConfigureAwait(false).GetAwaiter().GetResult();
+
+            Thread.Sleep(TimeSpan.FromSeconds(2));
+
+            ISearchResultContainer resultContainer = client.Search.List()
+                .GetAwaiter().GetResult();
+
+            Thread.Sleep(TimeSpan.FromSeconds(2));
+
+            ISearchResultContainer innaResults = client.Search.For("Inna")
                 .ConfigureAwait(false).GetAwaiter().GetResult();
 
             Console.Read();

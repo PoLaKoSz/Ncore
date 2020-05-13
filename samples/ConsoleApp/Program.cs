@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -37,6 +38,9 @@ namespace PoLaKoSz.Ncore.Samples.ConsoleApp
             Thread.Sleep(TimeSpan.FromSeconds(2));
 
             ISearchResultContainer innaResults = client.Search.For("Inna")
+                .ConfigureAwait(false).GetAwaiter().GetResult();
+
+            IEnumerable<HitAndRunTorrent> hitAndRunTorrents = client.HitAndRuns.List()
                 .ConfigureAwait(false).GetAwaiter().GetResult();
 
             Console.Read();

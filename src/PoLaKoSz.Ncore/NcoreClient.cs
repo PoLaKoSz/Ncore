@@ -40,6 +40,7 @@ namespace PoLaKoSz.Ncore
             LoginParser authChecker = new LoginParser();
             Login = new LoginEndPoint(client, cookies, authChecker, userConfig);
             Search = new SearchEndPoint(client, authChecker, userConfig);
+            HitAndRuns = new HitAndRunEndPoint(client, authChecker);
         }
 
         /// <summary>
@@ -51,5 +52,10 @@ namespace PoLaKoSz.Ncore
         /// Gets an access point to all search related action.
         /// </summary>
         public ISearchEndPoint Search { get; }
+
+        /// <summary>
+        /// Gets an access point to Hit'n'Run page.
+        /// </summary>
+        public IHitAndRunEndPoint HitAndRuns { get; }
     }
 }

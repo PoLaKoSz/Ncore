@@ -17,6 +17,7 @@ $ dotnet add package PoLaKoSz.NCore
 using PoLaKoSz.Ncore;
 using PoLaKoSz.Ncore.Models;
 using System;
+using System.Collections.Generic;
 
 namespace ConsoleApp
 {
@@ -39,6 +40,9 @@ namespace ConsoleApp
                 .GetAwaiter().GetResult();
 
             ISearchResultContainer matrixResultContainer = nCore.Search.For("The Matrix")
+                .GetAwaiter().GetResult();
+
+            IEnumerable<DownloadedTorrent> hitAndRuns = nCore.HitAndRuns.List()
                 .GetAwaiter().GetResult();
 
             Console.Read();

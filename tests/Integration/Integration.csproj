@@ -38,6 +38,9 @@
     <None Update="StaticResources\SearchEndPoint\without-results.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="StaticResources\HitAndRunEndPoint\multiple-torrents.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

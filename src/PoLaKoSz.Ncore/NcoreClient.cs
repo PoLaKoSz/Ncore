@@ -41,6 +41,7 @@ namespace PoLaKoSz.Ncore
             Login = new LoginEndPoint(client, cookies, authChecker, userConfig);
             Search = new SearchEndPoint(client, authChecker, userConfig);
             HitAndRuns = new HitAndRunEndPoint(client, authChecker);
+            Torrent = new TorrentEndPoint(client, authChecker);
         }
 
         /// <summary>
@@ -57,5 +58,10 @@ namespace PoLaKoSz.Ncore
         /// Gets an access point to Hit'n'Run page.
         /// </summary>
         public IHitAndRunEndPoint HitAndRuns { get; }
+
+        /// <summary>
+        /// Gets an access point to a <see cref="Torrent" /> resource.
+        /// </summary>
+        public ITorrentEndPoint Torrent { get; }
     }
 }

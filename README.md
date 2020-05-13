@@ -45,6 +45,9 @@ namespace ConsoleApp
             IEnumerable<DownloadedTorrent> hitAndRuns = nCore.HitAndRuns.List()
                 .GetAwaiter().GetResult();
 
+            Torrent firstTorrent = nCore.Torrent.Get(2)
+                .GetAwaiter().GetResult();
+
             Console.Read();
         }
     }

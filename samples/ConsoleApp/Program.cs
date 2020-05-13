@@ -27,20 +27,28 @@ namespace PoLaKoSz.Ncore.Samples.ConsoleApp
         {
             UserConfig userConfig = LoadCredentialsFromFile();
 
-            NcoreClient client = GetAuthenticatedClientFor(userConfig)
+            NcoreClient nCore = GetAuthenticatedClientFor(userConfig)
                 .ConfigureAwait(false).GetAwaiter().GetResult();
 
             Thread.Sleep(TimeSpan.FromSeconds(2));
 
-            ISearchResultContainer resultContainer = client.Search.List()
+            ISearchResultContainer resultContainer = nCore.Search.List()
                 .GetAwaiter().GetResult();
 
             Thread.Sleep(TimeSpan.FromSeconds(2));
 
-            ISearchResultContainer innaResults = client.Search.For("Inna")
+            ISearchResultContainer innaResults = nCore.Search.For("Inna")
                 .ConfigureAwait(false).GetAwaiter().GetResult();
 
-            IEnumerable<HitAndRunTorrent> hitAndRunTorrents = client.HitAndRuns.List()
+            IEnumerable<HitAndRunTorrent> hitAndRunTorrents = nCore.HitAndRuns.List()
+                .ConfigureAwait(false).GetAwaiter().GetResult();
+
+            Torrent torrent = nCore.Torrent.Get(1683491)
+                .ConfigureAwait(false).GetAwaiter().GetResult();
+
+            FileStream destination = new FileStream($"{torrent.UploadName}.torrent", FileMode.CreateNew);
+
+            torrent.DownloadAsFileTo(destination)
                 .ConfigureAwait(false).GetAwaiter().GetResult();
 
             Console.Read();

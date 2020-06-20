@@ -42,7 +42,7 @@ namespace PoLaKoSz.Ncore.Tests.Integration.EndPoints
             IEnumerable<HitAndRunTorrent> torrents = await endPoint.List().ConfigureAwait(false);
             HitAndRunTorrent firstTorrent = torrents.First();
 
-            Assert.That(830948, Is.EqualTo( firstTorrent.ID));
+            Assert.That(830948, Is.EqualTo(firstTorrent.ID));
         }
 
         [Test]

@@ -14,7 +14,7 @@
     <Product>nCore</Product>
     <PackageReleaseNotes>First stable release. The enty point to the library is the PoLaKoSz.Ncore.NcoreClient class.</PackageReleaseNotes>
     <Description>nCore.cc is the largest hungarian torrent side. This .NET Core 2.1 library helps to access its content (Torrent details, user Hit'n'Runs, Search for Torrent).</Description>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

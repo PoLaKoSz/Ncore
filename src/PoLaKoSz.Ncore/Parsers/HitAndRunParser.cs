@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using AngleSharp;
 using AngleSharp.Dom;
 using PoLaKoSz.Ncore.Exceptions;
@@ -12,7 +13,7 @@ namespace PoLaKoSz.Ncore.Parsers
         private static string torrentUrlShema = "torrents.php?action=details&id=";
 
         /// <exception cref="DeprecatedWrapperException"></exception>
-        internal async System.Threading.Tasks.Task<IEnumerable<HitAndRunTorrent>> ExtractResultsFromAsync(string html)
+        internal async Task<IEnumerable<HitAndRunTorrent>> ExtractResultsFromAsync(string html)
         {
             List<HitAndRunTorrent> torrents = new List<HitAndRunTorrent>();
 
@@ -50,20 +51,26 @@ namespace PoLaKoSz.Ncore.Parsers
         private HitAndRunTorrent ParseAsTorrent(IElement torrentNode, DateTime currentTime)
         {
             IElement nameNode = torrentNode.QuerySelector("div.hnr_tname a nobr");
-            IElement ratioNode = torrentNode.QuerySelector("div.hnr_tratio span");
 
             return new HitAndRunTorrent(
                 ParseID(torrentNode),
                 nameNode.TextContent,
                 ParseEnd(torrentNode, currentTime),
-                float.Parse(ratioNode.TextContent));
+                ParseRatio(torrentNode));
         }
 
         private int ParseID(IElement torrentNode)
         {
-            IElement idNode = torrentNode.QuerySelector("div.hnr_tname a");
-            string href = idNode.GetAttribute("href");
-            return int.Parse(href.Substring(torrentUrlShema.Length));
+            try
+            {
+                IElement idNode = torrentNode.QuerySelector("div.hnr_tname a");
+                string href = idNode.GetAttribute("href");
+                return int.Parse(href.Substring(torrentUrlShema.Length));
+            }
+            catch (Exception ex)
+            {
+                throw new DeprecatedWrapperException("Couldn't parse the ID of the torrent", torrentNode, ex);
+            }
         }
 
         private DateTime ParseEnd(IElement torrentNode, DateTime baseTime)
@@ -85,6 +92,19 @@ namespace PoLaKoSz.Ncore.Parsers
             }
 
             return baseTime.AddMinutes(minutes);
+        }
+
+        private float ParseRatio(IElement torrentNode)
+        {
+            try
+            {
+                IElement ratioNode = torrentNode.QuerySelector("div.hnr_tratio span");
+                return float.Parse(ratioNode.TextContent, System.Globalization.CultureInfo.InvariantCulture);
+            }
+            catch (Exception ex)
+            {
+                throw new DeprecatedWrapperException("Couldn't parse the ratio of the torrent", torrentNode, ex);
+            }
         }
     }
 }

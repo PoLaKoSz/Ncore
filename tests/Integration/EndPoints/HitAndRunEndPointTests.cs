@@ -79,5 +79,15 @@ namespace PoLaKoSz.Ncore.Tests.Integration.EndPoints
 
             Assert.That(firstTorrent.Ratio, Is.EqualTo(0.013f));
         }
+
+        [Test]
+        public async Task ListReturnsEmptyResultWhenNoHitAndRun()
+        {
+            SetServerResponse("no-torrent");
+
+            IEnumerable<HitAndRunTorrent> torrents = await endPoint.List();
+
+            Assert.That(torrents.Count(), Is.EqualTo(0));
+        }
     }
 }

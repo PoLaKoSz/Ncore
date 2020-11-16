@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AngleSharp;
 using AngleSharp.Dom;
@@ -32,6 +33,11 @@ namespace PoLaKoSz.Ncore.Parsers
                 throw new DeprecatedWrapperException("Couldn't find the Hit-And-Run torrent nodes!", container);
             }
 
+            if (NoHitAndRun(torrentNodes))
+            {
+                return torrents;
+            }
+
             DateTime currentTime = DateTime.Now;
             foreach (IElement torrentNode in torrentNodes)
             {
@@ -46,6 +52,12 @@ namespace PoLaKoSz.Ncore.Parsers
             }
 
             return torrents;
+        }
+
+        private bool NoHitAndRun(IHtmlCollection<IElement> torrentNodes)
+        {
+            return torrentNodes.Count() == 1
+                && torrentNodes.First().TextContent == "Az általad letöltött anyagokat a szabályoknak megfelelően visszaosztottad, a listád ennek köszönhetően üres.";
         }
 
         private HitAndRunTorrent ParseAsTorrent(IElement torrentNode, DateTime currentTime)

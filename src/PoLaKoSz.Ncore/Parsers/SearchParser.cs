@@ -2,6 +2,7 @@ using System;
 using System.Globalization;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Web;
 using AngleSharp;
 using AngleSharp.Dom;
 using PoLaKoSz.Ncore.EndPoints;
@@ -90,7 +91,9 @@ namespace PoLaKoSz.Ncore.Parsers
                 throw new DeprecatedWrapperException("Invalid href attribute for paginator <a>!", anchor);
             }
 
-            if (!int.TryParse(hrefAttr.Substring("/torrents.php?oldal=".Length), out int anchorPage))
+            var queryParameters = HttpUtility.ParseQueryString(hrefAttr.Substring("/torrents.php?".Length));
+
+            if (!int.TryParse(queryParameters.Get("oldal"), out int anchorPage))
             {
                 throw new DeprecatedWrapperException("Invalid int page number in paginator <a>!", anchor);
             }

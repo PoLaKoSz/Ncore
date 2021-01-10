@@ -12,9 +12,9 @@
     <PackageLicenseUrl>https://github.com/PoLaKoSz/nCore/LICENSE</PackageLicenseUrl>
     <PackageId>PoLaKoSz.Ncore</PackageId>
     <Product>nCore</Product>
-    <PackageReleaseNotes>Handle empty Hit'n'Run list. The enty point to the library is the PoLaKoSz.Ncore.NcoreClient class.</PackageReleaseNotes>
+    <PackageReleaseNotes>Fix a critical semantic error in the SearchParser. The enty point to the library is the PoLaKoSz.Ncore.NcoreClient class.</PackageReleaseNotes>
     <Description>nCore.cc is the largest hungarian torrent side. This .NET Core 2.1 library helps to access its content (Torrent details, user Hit'n'Runs, Search for Torrent).</Description>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

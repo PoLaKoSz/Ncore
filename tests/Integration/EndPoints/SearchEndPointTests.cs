@@ -72,5 +72,15 @@ namespace PoLaKoSz.Ncore.Tests.Integration.EndPoints
             Assert.AreEqual("Alarcos.enekes.S01E01.WEB-DL.H264.Hun-TheMilkyWay", lastTorrent.Name);
             Assert.AreEqual(new DateTime(2020, 4, 13, 12, 25, 27, DateTimeKind.Local), lastTorrent.UploadedAt);
         }
+
+        [Test]
+        public async Task Issue1_SearchingWithQueryCrashAtPageNumberParsing()
+        {
+            SetServerResponse("search-for-inna");
+
+            await endPoint.For("Inna");
+
+            Assert.Pass();
+        }
     }
 }

@@ -35,6 +35,9 @@
     <None Update="StaticResources\SearchEndPoint\results-with-multiple-pages.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="StaticResources\SearchEndPoint\search-for-inna.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="StaticResources\SearchEndPoint\without-results.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

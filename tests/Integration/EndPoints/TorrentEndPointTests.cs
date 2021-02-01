@@ -49,7 +49,7 @@ namespace PoLaKoSz.Ncore.Tests.Integration.EndPoints
 
             Torrent torrent = await endPoint.Get(-1).ConfigureAwait(false);
 
-            Assert.That(torrent.DownloadURL, Is.EqualTo(new Uri("https://ncore.cc/torrents.php?action=download&id=1683491&key=b6d64d585e5615c0721c1b008a7473bc")));
+            Assert.That(torrent.DownloadURL, Is.EqualTo(new Uri("https://ncore.pro/torrents.php?action=download&id=1683491&key=b6d64d585e5615c0721c1b008a7473bc")));
         }
 
         [Test]

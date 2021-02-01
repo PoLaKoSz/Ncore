@@ -1,6 +1,6 @@
 # PoLaKoSz.Ncore
 
-[https://ncore.cc](https://ncore.cc) is the largest hungarian torrent side. This .NET Core 2.1 library helps to access its content
+[https://ncore.pro](https://ncore.pro) is the largest hungarian torrent side. This .NET Core 2.1 library helps to access its content
 (Torrent details, user Hit'n'Runs, Search for Torrent).
 
 ## Install

@@ -32,7 +32,7 @@ namespace PoLaKoSz.Ncore
 
             HttpClient client = new HttpClient(messageHandler)
             {
-                BaseAddress = new Uri("https://ncore.cc/"),
+                BaseAddress = new Uri("https://ncore.pro/"),
             };
             client.DefaultRequestHeaders.Add("User-Agent", " Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3982.0 Safari/537.36");
 

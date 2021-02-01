@@ -19,7 +19,7 @@ namespace PoLaKoSz.Ncore.EndPoints
         static LoginEndPoint()
         {
             _cookiePath = "/";
-            _cookieDomain = "ncore.cc";
+            _cookieDomain = "ncore.pro";
         }
 
         internal LoginEndPoint(

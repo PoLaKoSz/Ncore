@@ -8,13 +8,13 @@
     <PackageProjectUrl>https://github.com/PoLaKoSz/nCore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/PoLaKoSz/nCore</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>ncore ncore.cc wrapper api scraper netcore netcore2.1</PackageTags>
+    <PackageTags>ncore ncore.pro wrapper api scraper netcore netcore2.1</PackageTags>
     <PackageLicenseUrl>https://github.com/PoLaKoSz/nCore/LICENSE</PackageLicenseUrl>
     <PackageId>PoLaKoSz.Ncore</PackageId>
     <Product>nCore</Product>
-    <PackageReleaseNotes>Fix a critical semantic error in the SearchParser. The enty point to the library is the PoLaKoSz.Ncore.NcoreClient class.</PackageReleaseNotes>
-    <Description>nCore.cc is the largest hungarian torrent side. This .NET Core 2.1 library helps to access its content (Torrent details, user Hit'n'Runs, Search for Torrent).</Description>
-    <Version>1.1.1</Version>
+    <PackageReleaseNotes>Update the doman from ncore.cc to ncore.pro. The enty point to the library is the PoLaKoSz.Ncore.NcoreClient class.</PackageReleaseNotes>
+    <Description>nCore.pro is the largest hungarian torrent side. This .NET Core 2.1 library helps to access its content (Torrent details, user Hit'n'Runs, Search for Torrent).</Description>
+    <Version>1.1.2</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

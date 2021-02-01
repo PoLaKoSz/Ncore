@@ -22,7 +22,7 @@ namespace PoLaKoSz.Ncore.Tests.Integration.EndPoints
         {
             endPoint = new NcoreClient(Web).Login;
         }
-        
+
         [Test]
         public async Task AuthenticateWithAddsRequiredCookies()
         {
@@ -31,14 +31,14 @@ namespace PoLaKoSz.Ncore.Tests.Integration.EndPoints
 
             await endPoint.AuthenticateWith(userConfig);
 
-            CookieCollection cookies = Web.CookieContainer.GetCookies(new System.Uri("https://ncore.cc"));
+            CookieCollection cookies = Web.CookieContainer.GetCookies(new System.Uri("https://ncore.pro"));
             Assert.AreEqual("php", cookies["PHPSESSID"].Value);
             Assert.AreEqual("p4ssw0rd", cookies["pass"].Value);
             Assert.AreEqual("PoLáKoSz", cookies["nick"].Value);
             Assert.AreEqual("brutecore", cookies["stilus"].Value);
             Assert.AreEqual("hu", cookies["nyelv"].Value);
         }
-        
+
         [Test]
         public void AuthenticateWithThrowsUnauthenticatedExceptionWhenLoginUnsuccessful()
         {
@@ -48,13 +48,13 @@ namespace PoLaKoSz.Ncore.Tests.Integration.EndPoints
             UnauthorizedException ex = Assert.ThrowsAsync<UnauthorizedException>(async () =>
                 await endPoint.AuthenticateWith(userConfig));
         }
-        
+
         [Test]
         public async Task AuthenticateWithDoesNothingWhenLoginSuccessful()
         {
             UserConfig userConfig = new UserConfig(null, null, null);
             SetServerResponse("authenticated");
-            
+
             await endPoint.AuthenticateWith(userConfig);
         }
     }
